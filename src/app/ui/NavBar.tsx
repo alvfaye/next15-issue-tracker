@@ -4,8 +4,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { AiFillBug } from 'react-icons/ai';
-// import { clsx } from 'clsx';
-import classnames from 'classnames'
+import { clsx } from 'clsx';
+// import classnames from 'classnames'
 
 const navlinks = [
   {
@@ -31,7 +31,7 @@ const NavBar = () => {
           <Link
             key={link.text}
             href={link.href}
-            className={`classnames({
+            className={`clsx({
               'text-cyan-500': curPath !== link.href,
               'text-rose-900': link.href === curPath,
               'hover: text-zinc-800 transition-colors': true,

@@ -11,15 +11,20 @@
   "dependencies": {
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.32.1",
     "next": "15.0.0-rc.0",
+    "pg": "^8.12.0",
     "react": "19.0.0-rc-3208e73e-20240730",
     "react-dom": "19.0.0-rc-3208e73e-20240730",
     "react-icons": "^5.2.1"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/pg": "^8.11.6",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "drizzle-kit": "^0.23.1",
     "eslint": "^8",
     "eslint-config-next": "15.0.0-rc.0",
     "postcss": "^8",
