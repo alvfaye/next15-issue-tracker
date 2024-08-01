@@ -31,11 +31,11 @@ const NavBar = () => {
           <Link
             key={link.text}
             href={link.href}
-            className={`clsx({
-              'text-cyan-500': curPath !== link.href,
-              'text-rose-900': link.href === curPath,
-              'hover: text-zinc-800 transition-colors': true,
-            })`}
+            className={clsx({
+              'text-zinc-400': curPath !== link.href,
+              'text-zinc-900': link.href === curPath,
+              'hover:text-zinc-900 transition-colors': true,
+            })}
           >
             {link.text}
           </Link>
