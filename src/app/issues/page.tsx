@@ -1,9 +1,12 @@
-const Issue = () => {
-  return ( 
-    <div>
-      Issue List
-    </div>
-   );
+import Link from 'next/link'
+import {Button} from '@/components/ui/button'
+
+const NewIssue = () => {
+  return (
+    <Button>
+      <Link href="/issues/new">Create New Issue</Link>
+    </Button>
+  );
 }
  
-export default Issue;
+export default NewIssue;
