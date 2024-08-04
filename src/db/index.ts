@@ -10,4 +10,5 @@ const pool = new Pool({
   database: 'issuetracker',
 });
 
-const db = drizzle(pool);
+export const db = drizzle(pool);
+
