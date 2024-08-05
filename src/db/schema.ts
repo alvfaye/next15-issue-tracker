@@ -1,4 +1,5 @@
-// import { datetime, timestamp } from 'drizzle-orm/mysql-core';
+import { DrizzlePostgreSQLAdapter } from '@lucia-auth/adapter-drizzle';
+import { DrizzleD1Database } from 'drizzle-orm/d1';
 import {
   serial,
   text,
@@ -7,16 +8,36 @@ import {
   timestamp,
   pgEnum,
 } from 'drizzle-orm/pg-core';
-
-// export const mySchema = pgSchema('public');
+import { db } from '@/db/index';
 
 export const statusEnum = pgEnum('status', ['OPEN', 'IN_PROGRESS', 'CLOSED']);
 
-export const issue = pgTable('issue', {
+export const userTable = pgTable('user', {
+  id: text('id').primaryKey(),
+});
+
+export const issueTable = pgTable('issue', {
   id: serial('id').primaryKey(),
-  title: varchar('title', {length:256}),
+  title: varchar('title', { length: 256 }),
   description: text('description'),
   status: statusEnum('status').default('OPEN'),
   createdAt: timestamp('created_at').defaultNow(),
   updatedAt: timestamp('updated_at').defaultNow(),
 });
+
+export const sessionTable = pgTable('session', {
+  id: text('id').primaryKey(),
+  userId: text('user_id')
+    .notNull()
+    .references(() => userTable.id),
+  expiresAt: timestamp('expires_at', {
+    withTimezone: true,
+    mode: 'date',
+  }).notNull(),
+});
+
+export const adapter = new DrizzlePostgreSQLAdapter(
+  db,
+  sessionTable,
+  userTable
+);
