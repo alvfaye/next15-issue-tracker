@@ -1,5 +1,4 @@
 import { DrizzlePostgreSQLAdapter } from '@lucia-auth/adapter-drizzle';
-import { DrizzleD1Database } from 'drizzle-orm/d1';
 import {
   serial,
   text,
@@ -8,7 +7,7 @@ import {
   timestamp,
   pgEnum,
 } from 'drizzle-orm/pg-core';
-import { db } from '@/db/index';
+import { db } from '@/db';
 
 export const statusEnum = pgEnum('status', ['OPEN', 'IN_PROGRESS', 'CLOSED']);
 
