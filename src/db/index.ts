@@ -1,5 +1,5 @@
 import { pgTable, serial, text, varchar } from 'drizzle-orm/pg-core';
-import { drizzle } from 'drizzle-orm/node-postgres';
+import { drizzle } from 'drizzle-orm/postgres-js';
 import { Pool } from 'pg';
 
 const pool = new Pool({
